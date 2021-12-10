@@ -30,3 +30,7 @@ export const login = async (email, password) => {
     }
     throw result.message;
 };
+
+export const logout = () => {
+    return fetch('/users/logout');
+}
