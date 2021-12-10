@@ -6,6 +6,7 @@ import * as authService from '../../servecies/auth';
 
 const Register = () => {
 const navigate = useNavigate();
+
 	const registerHandler = (e) => {
 
 		e.preventDefault();
@@ -13,11 +14,19 @@ const navigate = useNavigate();
 
 		let email = formData.get('email');
 		let password = formData.get('password');
+		let repeatePassword = formData.get('confirm-pass');
 
+		if(password !== repeatePassword) {
+			alert('Password missmatch');
+		}
+		
 		authService.register(email, password)
 			.then(authData => {
 				
 				navigate('/login');
+			})
+			.catch(err => {
+				alert(err)
 			})
 
 	}

@@ -6,9 +6,15 @@ const utilService = require('../utils/jwtPromise');
 const constantStrings = require('../utils/constants');
 
 
-exports.register = async (email, password) => {
+exports.register = async (email, password, repeatPassword) => {
+    try {
+        return User.create({ email, password });
 
-    return User.create({ email, password });
+    } catch (error) {
+        console.log(error);
+    }
+    
+
 };
 
 exports.login = async (email, password) => {
@@ -20,9 +26,8 @@ exports.login = async (email, password) => {
             let accessToken = await createToken(user);
             return { user, accessToken };
         }
-
     } catch (error) {
-        throw new Error('Incorect username or password');
+        console.log(error)
     }
 
 };

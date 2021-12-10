@@ -18,7 +18,7 @@ router.post('/register', async (req, res) => {
         });
 
     } catch (error) {
-        res.status('403').json({ message: 'Password a rePass mismatch' });
+        res.status('403').json({ message: 'Something went wrong srry ...' });
     }
 
 });
@@ -28,8 +28,8 @@ router.post('/login', async (req, res) => {
 
     try {
         if (email && password !== undefined) {
-
             let { user, accessToken } = await authService.login(email, password);
+
             res.json({
                 _id: user._id,
                 email: user.email,

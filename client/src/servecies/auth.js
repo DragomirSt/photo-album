@@ -1,5 +1,4 @@
 
-
 export const register = async(email, password) => {
     const res = await fetch('/users/register', {
         method: 'POST',
@@ -9,7 +8,11 @@ export const register = async(email, password) => {
         body: JSON.stringify({ email, password })
     });
     let result = await res.json();
-    return result;
+
+    if (res.ok) {
+        return result;
+    }
+    throw result.message;
 };
 
 export const login = async (email, password) => {
