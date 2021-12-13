@@ -28,20 +28,22 @@ function App() {
   }
 
   return (
-    <>
-      <AuthContext.Provider value={{ user, setUserSessionData, logoutUser }}>
-        <div className="App">
+    <AuthContext.Provider value={{ user, setUserSessionData, logoutUser }}>
+      <div>
+        <div className='app'>
           <Navigation />
+
+          <main className='site-content'>
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="logout" element={<Logout />} />
+            </Routes>
+          </main>
+
         </div>
-        <div>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="logout" element={<Logout/>}/>
-          </Routes>
-        </div>
-      </AuthContext.Provider>
-    </>
+      </div>
+    </AuthContext.Provider>
   );
 }
 
