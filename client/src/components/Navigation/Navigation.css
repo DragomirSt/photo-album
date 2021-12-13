@@ -1,0 +1,30 @@
+
+.topnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: 15px;
+    background-color:  #0000001f;
+    border-style: outset;
+    border-color:  #0000003f;
+    padding: 1px;
+  
+    
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #000000d5;
+    text-shadow: 0.5px 0.5px  #0000003f;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+   
+}
+
+.topnav a:checked {
+    background-color: steelblue;
+    color: black;
+}
