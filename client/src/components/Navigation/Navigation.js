@@ -1,10 +1,11 @@
 
+import './Navigation.css';
 
 import { Link } from 'react-router-dom'
 const Navagation = () => {
 
     return (
-        <div>
+        <div className='topnav'>
             <nav>
                 <Link to="/login">Login</Link>
                 <Link to="/register">Register</Link>
