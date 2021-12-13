@@ -1,5 +1,5 @@
 
-
+import './Register.css'
 import {useNavigate} from 'react-router-dom';
 
 import * as authService from '../../servecies/auth';
@@ -22,18 +22,20 @@ const navigate = useNavigate();
 		
 		authService.register(email, password)
 			.then(authData => {
+				console.log(authData)
 				
 				navigate('/login');
 			})
 			.catch(err => {
+				// To Doo: Error handling
 				alert(err)
 			})
 
 	}
 	return (
 
-		<form  method="POST" onSubmit={registerHandler}>
-			<fieldset>
+		<form className='register-form' method="POST" onSubmit={registerHandler}>
+			<fieldset className='register-fieldset'>
 				<legend>Register Form</legend>
 
 				<label htmlFor="email">Email</label>
