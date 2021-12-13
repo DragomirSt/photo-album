@@ -11,14 +11,10 @@ router.post('/register', async (req, res) => {
 
     try {
         const user = await authService.register(email, hashedPassword);
-        res.json({
-            _id: user._id,
-            email: user.email,
-
-        });
+        res.json({ message: 'Registration has been successfull!' , userId: user._id });
 
     } catch (error) {
-        res.status('403').json({ message: 'Something went wrong srry ...' });
+        throw new Error(error);
     }
 
 });
