@@ -1,10 +1,12 @@
 
+import './Login.css'
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+
 import * as authService from '../../servecies/auth';
+
 const Login = () => {
-    
-    const {setUserSessionData} = useContext(AuthContext);
+    const { setUserSessionData } = useContext(AuthContext);
     const loginHandler = (e) => {
         e.preventDefault();
         let formData = new FormData(e.target);
@@ -26,8 +28,9 @@ const Login = () => {
     };
 
     return (
-        <form method="POST" onSubmit={loginHandler}>
-            <fieldset>
+        
+        <form className='login-form'method="POST" onSubmit={loginHandler}>
+            <fieldset className='login-fieldset'>
                 <legend>Login Form</legend>
 
                 <label htmlFor="email">Email</label>
@@ -39,6 +42,8 @@ const Login = () => {
                 <input className="button submit" type="submit" value="Login" />
             </fieldset>
         </form>
+       
+       
     )
 }
 
