@@ -1,0 +1,18 @@
+
+.create-fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color:  #0000001f;
+    border-style: outset;
+    border-color:  #0000003f;
+    width: 400px;
+    height: 450px;
+    margin-top: 20px;
+}
+
+
+.create-form {
+    margin-left: 150px;
+}
