@@ -6,16 +6,19 @@ import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
+    
     const navigate = useNavigate();
     const { logoutUser } = useContext(AuthContext);
 
     useEffect(() => {
         authService.logout()
             .then(() => {
-                logoutUser()
-                navigate('/login');
+
+                logoutUser();
+                navigate('/');
             })
-    }, [])
+    }, [navigate, logoutUser]);
+
     return null;
 }
 
