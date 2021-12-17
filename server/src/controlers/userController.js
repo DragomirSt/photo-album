@@ -11,7 +11,7 @@ router.post('/register', async (req, res) => {
 
     try {
         const user = await authService.register(email, hashedPassword);
-        res.json({ message: 'Registration has been successfull!' , userId: user._id });
+        res.json({ message: 'Registration has been successfull!', userId: user._id });
 
     } catch (error) {
         throw new Error('Sorry');
@@ -19,22 +19,25 @@ router.post('/register', async (req, res) => {
 
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login', (req, res) => {
     let { email, password } = req.body;
 
-    try {
-        if (email && password !== undefined) {
-            let { user, accessToken } = await authService.login(email, password);
+    if (email && password !== undefined) {
 
-            res.json({
-                _id: user._id,
-                email: user.email,
-                accessToken
+        authService.login(email, password)
+            .then((userData) => {
+                let user = userData.user
+                let accessToken = userData.accessToken
 
+                res.json({
+                    _id: user._id,
+                    email: user.email,
+                    accessToken
+                });
+            })
+            .catch(() => {
+                res.status(400).json({message: 'Wrong username or password'});
             });
-        }
-    } catch (error) {
-        res.status('403').json({ message: 'Wrong username or password' });
     }
 
 });
