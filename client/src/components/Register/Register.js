@@ -1,11 +1,11 @@
 
 import './Register.css'
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import * as authService from '../../servecies/auth';
 
 const Register = () => {
-const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const registerHandler = (e) => {
 
@@ -16,14 +16,14 @@ const navigate = useNavigate();
 		let password = formData.get('password');
 		let repeatePassword = formData.get('confirm-pass');
 
-		if(password !== repeatePassword) {
+		if (password !== repeatePassword) {
 			alert('Password missmatch');
 		}
-		
+
 		authService.register(email, password)
 			.then(authData => {
 				console.log(authData)
-				
+
 				navigate('/login');
 			})
 			.catch(err => {
