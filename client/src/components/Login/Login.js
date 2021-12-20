@@ -1,12 +1,15 @@
 
 import './Login.css'
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
 import * as authService from '../../servecies/auth';
 
 const Login = () => {
     const { setUserSessionData } = useContext(AuthContext);
+    const navigate = useNavigate();
+
     const loginHandler = (e) => {
         e.preventDefault();
         let formData = new FormData(e.target);
@@ -16,8 +19,9 @@ const Login = () => {
 
         authService.login(email, password)
             .then(authData => {
-                console.log(authData);
+                
                 setUserSessionData(authData);
+                navigate('/all-photos')
             })
             .catch(err => {
                 //Toddo: error handling
@@ -28,23 +32,30 @@ const Login = () => {
     };
 
     return (
-        
-        <form className='login-form'method="POST" onSubmit={loginHandler}>
-            <fieldset className='login-fieldset'>
-                <legend>Login Form</legend>
+        <div className='login-form'>
+            <form method="POST" onSubmit={loginHandler}>
+                <div className='login-form-text'>
+                    <h2>Login Form</h2>
+                </div>
+                <div className='email-label'>
+                    <h3>Email: </h3>
+                </div>
+                <div className='inputs'>
+                    <input type="text" name="email" className="email" placeholder="Email" />
+                </div>
+                <div className='password-label'>
+                    <h3>Password: </h3>
+                </div>
+                <div className='inputs-password'>
+                    <input type="password" name="password" className="password" placeholder="Password" />
+                </div>
+                <div>
+                    <input className="button-submit" type="submit" value="Login" />
+                </div>
 
-                <label htmlFor="email">Email</label>
-                <input type="text" name="email" id="email" placeholder="Email" />
-
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Password" />
-
-                <input className="button submit" type="submit" value="Login" />
-            </fieldset>
-        </form>
-       
-       
-    )
-}
+            </form>
+        </div>
+    );
+};
 
 export default Login;
