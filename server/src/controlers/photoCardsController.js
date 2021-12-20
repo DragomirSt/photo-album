@@ -2,6 +2,17 @@
 const express = require('express');
 const router = express.Router();
 
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './uploads');
+    },
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}${file.originalname}`);
+    }
+});
+const upload = multer({ storage });
+
 const photoService = require('../servecies/photoCard');
 const { isAuth } = require('../middlewares/authMiddleware');
 
@@ -16,10 +27,16 @@ router.get('/', async (req, res) => {
 
 });
 
-router.post('/', isAuth, async (req, res) => {
+router.post('/', isAuth, upload.single('imageUrl'), async (req, res) => {
+   
     let name = req.body.name;
     let genre = req.body.genre;
-    let imageUrl = req.body.imageUrl;
+    let imageUrl = req.file.path;
+
+    if (req.file.mimetype !== 'image/jpeg' && 'image/png') {
+        res.status(400).json({ message: 'Invalid type, images must be jpeg or png' });
+        return;
+    }
 
     try {
         await photoService.create({ name, genre, imageUrl, _ownerId: req.user._id });
