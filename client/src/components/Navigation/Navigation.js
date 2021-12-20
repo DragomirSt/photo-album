@@ -32,7 +32,7 @@ const Navagation = () => {
                     : guestNavigation}
             </nav>
         </div>
-    )
-}
+    );
+};
 
 export default Navagation;
