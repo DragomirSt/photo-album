@@ -4,27 +4,34 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-self: center;
-    margin-top: 15px;
+    margin-top: 10px;
     background-color:  #0000001f;
     border-style: outset;
     border-color:  #0000003f;
-    padding: 1px;
-  
+    width: auto;
+    border: 3px solid rgb(63, 62, 62);
+    background-color: burlywood;
+    
     
 }
 
 .topnav a {
     float: left;
     display: block;
-    color: #000000d5;
+    color: rgb(160, 119, 119);
     text-shadow: 0.5px 0.5px  #0000003f;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 20px;
+  
    
 }
 
-.topnav a:checked {
-    background-color: steelblue;
-    color: black;
+.topnav a:hover {
+    background-color:rgb(109, 15, 15);
+    text-decoration: rgb(160, 119, 119);   
 }
+
+
+
+
