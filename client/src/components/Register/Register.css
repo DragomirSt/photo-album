@@ -1,18 +1,73 @@
 
-.register-fieldset {
-     display: flex;
-     flex-wrap: wrap;
-     flex-direction: column;
-     justify-content: space-evenly;
-     background-color:  #0000001f;
-     border-style: outset;
-     border-color:  #0000003f;
-     width: 400px;
-     height: 450px;
-     margin-top: 20px;
- }
- 
- 
- .register-form {
-     margin-left: 150px;
- }
+.register-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color:  rgb(109, 15, 15);
+    border-color:  #0000003f;
+    width: 425px;
+    height: 500px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.inputs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: fit-content;
+}
+
+.inputs-password {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly; 
+    width: fit-content;
+    height: 40px;
+}
+
+.inputs-re-password {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly; 
+    width: fit-content;
+    height: 40px;
+}
+
+
+.button-submit {
+    background-color: burlywood;
+    text-decoration: rgb(160, 119, 119);
+    margin-bottom: 60px;
+}
+
+.email-input {
+    width:220px;
+    height: 25px;
+}
+
+.password-input {
+    width:220px;
+    height: 25px;
+}
+
+.register-form-text {
+     background-color: burlywood;
+     text-align: center;
+}
+
+.email-label {
+    color: burlywood;
+}
+
+.password-label {
+    color: burlywood;
+}
+
+.re-password-label {
+    color: burlywood;
+}
