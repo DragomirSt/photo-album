@@ -4,10 +4,9 @@ export const createCard = (data, token) => {
     return fetch('/data/photos', {
         method: 'POST',
         headers: {
-            'content-type': 'application/json',
             'X-Authorization': token
         },
-        body: JSON.stringify(data)
+        body: data
     })
         .then(result => {
             return result
@@ -17,7 +16,7 @@ export const createCard = (data, token) => {
 
 export const getAllPhotos = () => {
 
-    return fetch('/data/photos',{})
+    return fetch('/data/photos', {})
         .then(res => res.json());
 
 }
@@ -28,5 +27,11 @@ export const deletePhoto = (id) => {
         method: 'DELETE'
     });
 };
+
+export const getCertainPhoto = (id) => {
+
+    return fetch(`/data/photos/${id}`)
+        .then(res => res.json());
+}
 
 
