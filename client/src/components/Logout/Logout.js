@@ -15,7 +15,7 @@ const Logout = () => {
             .then(() => {
 
                 logoutUser();
-                navigate('/');
+                navigate('/login');
             })
     }, [navigate, logoutUser]);
 
