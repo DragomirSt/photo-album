@@ -33,25 +33,33 @@ const Register = () => {
 
 	}
 	return (
-
-		<form className='register-form' method="POST" onSubmit={registerHandler}>
-			<fieldset className='register-fieldset'>
-				<legend>Register Form</legend>
-
-				<label htmlFor="email">Email</label>
-				<input type="text" name="email" id="email" placeholder="Email" />
-
-				<label htmlFor="password">Password</label>
-				<input type="password" name="password" id="password" placeholder="Password" />
-
-				<label htmlFor="repeat-pass">Repeat Password</label>
-				<input type="password" name="confirm-pass" id="repeat-pass" placeholder="Repeat Password" />
-
-				<input className="button submit" type="submit" value="Register" />
-			</fieldset>
-		</form>
-
-	)
-}
+		<div className='register-form'>
+			<form method="POST" onSubmit={registerHandler}>
+				<div className='register-form-text'>
+					<h2>Register Form</h2>
+				</div>
+				<div className='email-label'>
+					<h3>Email: </h3>
+				</div>
+				<div className='inputs'>
+					<input type="text" name="email" className="email-input" placeholder="Email" />
+				</div>
+				<div className='password-label'>
+					<h3>Password: </h3>
+				</div>
+				<div className='inputs-password'>
+					<input type="password" name="password" className="password-input" placeholder="Password" />
+				</div>
+				<div className='re-password-label'>
+					<h3>Confirm Password: </h3>
+				</div>
+				<div className='inputs-re-password'>
+					<input type="password" name="password" className="password" placeholder="Password" />
+				</div>
+				<input className="button-submit" type="submit" value="Register" />
+			</form>
+		</div>
+	);
+};
 
 export default Register;
