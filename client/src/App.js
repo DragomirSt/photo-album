@@ -39,6 +39,7 @@ function App() {
           <main className='site-content'>
             <Routes>
               <Route path="/" element={<AllPhotos />} />
+              <Route path="/all-photos" element={<AllPhotos/>} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/create" element={<Create />} />
@@ -46,9 +47,9 @@ function App() {
               <Route path="/delete/:id" element={<DeleteComponent />} />
             </Routes>
           </main>
-
         </div>
       </div>
+
     </AuthContext.Provider>
   );
 }
