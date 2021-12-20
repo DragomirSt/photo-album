@@ -1,17 +1,18 @@
 
+import './PhotoCard.css';
 import { Link } from 'react-router-dom';
-
 
 const PhotoCard = ({
     photo
 }) => {
     return (
-        <div>
-            <h2>{photo.name}</h2>
-            <h2>{photo.genre}</h2>
-            <Link to={`/delete/${photo._id}`}>Delete</Link>
+        <div className='photo-card'>
+            <p className="img"><img src={photo.imageUrl} width={450} height={300} /></p>
+            <div className='button'>
+                <Link to={`/details/${photo._id}`}>Details</Link>
+            </div>
         </div>
     );
 };
 
-export default PhotoCard
+export default PhotoCard;
