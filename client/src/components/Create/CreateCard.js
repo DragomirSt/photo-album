@@ -27,6 +27,9 @@ const Create = () => {
             .then(res => {
                 navigate('/');
             })
+            .catch(err => {
+                alert(err);
+            });
     };
 
     return (
