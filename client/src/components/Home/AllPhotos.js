@@ -12,9 +12,12 @@ const AllPhotos = () => {
     useEffect(() => {
         photo.getAllPhotos()
             .then(result => {
-                
+            
                 setPhotos(result);
-            });
+            })
+            .catch(err => {
+               alert(err);
+            })
 
     }, []);
 
