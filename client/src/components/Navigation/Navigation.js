@@ -18,6 +18,7 @@ const Navagation = () => {
     const userNavigation = (
         <>
             <Link to="/create">Create</Link>
+            <Link to="/my-photos">My Photos</Link>
             <Link to="/logout">Logout</Link>
         </>
     );
