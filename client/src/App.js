@@ -1,5 +1,6 @@
 
 import './App.css';
+
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -14,7 +15,6 @@ import AllPhotos from './components/Home/AllPhotos';
 import DeleteComponent from './components/Delete/DeleteComponent';
 import Details from './components/Details/Details';
 
-
 const initialUserState = {
   _id: null,
   email: null,
@@ -26,12 +26,13 @@ function App() {
 
   const setUserSessionData = (authData) => {
     setUser(authData);
-  }
+  };
 
   const logoutUser = () => {
     setUser(initialUserState);
-  }
+  };
 
+  
   return (
     <AuthContext.Provider value={{ user, setUserSessionData, logoutUser }}>
       <div>

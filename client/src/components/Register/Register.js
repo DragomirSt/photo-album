@@ -1,7 +1,7 @@
 
 import './Register.css'
-import { useNavigate } from 'react-router-dom';
 
+import { useNavigate } from 'react-router-dom';
 import * as authService from '../../servecies/auth';
 
 const Register = () => {

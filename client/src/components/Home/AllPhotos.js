@@ -1,4 +1,6 @@
+
 import './AllPhotos.css'
+
 import { useState, useEffect } from 'react';
 
 import * as photo from '../../servecies/photo';

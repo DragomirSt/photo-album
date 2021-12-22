@@ -1,9 +1,10 @@
 
 import './Login.css'
+
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthContext';
 
+import { AuthContext } from '../../contexts/AuthContext';
 import * as authService from '../../servecies/auth';
 
 const Login = () => {
@@ -28,7 +29,6 @@ const Login = () => {
                 alert(err)
 
             });
-
     };
 
     return (
