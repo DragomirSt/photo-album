@@ -26,6 +26,3 @@ exports.isAuth = function (req, res, next) {
         res.status(401).json({ message: 'You are not authorized' });
     }
 };
-
-
-
