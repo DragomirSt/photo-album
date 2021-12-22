@@ -20,15 +20,6 @@
     width: fit-content;
 }
 
-.inputs-password {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly; 
-    width: fit-content;
-    
-}
-
 .button-submit {
     height: 40px;
     width: 140px;
