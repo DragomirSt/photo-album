@@ -15,6 +15,7 @@ import AllPhotos from './components/Home/AllPhotos';
 import DeleteComponent from './components/Delete/DeleteComponent';
 import Details from './components/Details/Details';
 import Edit from './components/Edit/Edit';
+import MyPhotos from './components/MyPhotos/MyPhotos';
 
 const initialUserState = {
   _id: null,
@@ -51,11 +52,9 @@ function App() {
               <Route path="/delete/:id" element={<DeleteComponent />} />
               <Route path="/details/:id" element={<Details />} />
               <Route path="/edit/:id" element={<Edit />} />
+              <Route path="/my-photos" element={<MyPhotos />} />
             </Routes>
           </main>
-          <footer id="site-footer">
-            <h3>Photo Album</h3>
-          </footer>
         </div>
       </div>
 
