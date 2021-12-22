@@ -23,7 +23,7 @@ router.post('/login', (req, res) => {
     let { email, password } = req.body;
 
     if (email && password !== undefined) {
-
+        
         authService.login(email, password)
             .then((userData) => {
                 let user = userData.user
