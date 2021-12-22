@@ -57,6 +57,17 @@ router.get('/:id', async (req, res) => {
 
 });
 
+router.put('/:id', async (req, res) => {
+   try {
+       await photoService.update(req.params.id, req.body);
+       res.json({message: 'Sucessfully updated'});
+
+   } catch (error) {
+       res.status(400).json({message: 'Error'});
+   }
+   
+});
+
 router.patch('/likes', async (req, res) => {
     return PhotoCard.findByIdAndUpdate(req.body.postId, {
         $inc: { likes: +1 }
