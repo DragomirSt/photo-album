@@ -12,6 +12,8 @@ import Logout from './components/Logout/Logout';
 import Create from './components/Create/CreateCard';
 import AllPhotos from './components/Home/AllPhotos';
 import DeleteComponent from './components/Delete/DeleteComponent';
+import Details from './components/Details/Details';
+
 
 const initialUserState = {
   _id: null,
@@ -39,14 +41,18 @@ function App() {
           <main className='site-content'>
             <Routes>
               <Route path="/" element={<AllPhotos />} />
-              <Route path="/all-photos" element={<AllPhotos/>} />
+              <Route path="/all-photos" element={<AllPhotos />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/create" element={<Create />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/delete/:id" element={<DeleteComponent />} />
+              <Route path="/details/:id" element={<Details />} />
             </Routes>
           </main>
+          <footer id="site-footer">
+            <h3>Photo Album</h3>
+          </footer>
         </div>
       </div>
 

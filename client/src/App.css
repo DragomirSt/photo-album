@@ -7,4 +7,9 @@
     flex-direction: row; 
 }
 
-
+footer {
+    margin-top: 900px;
+    background-color: burlywood;
+    height: 50px;
+    text-align: center;
+}
