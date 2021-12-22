@@ -29,9 +29,9 @@ const Register = () => {
 			.catch(err => {
 				// To Doo: Error handling
 				alert(err)
-			})
+			});
+	};
 
-	}
 	return (
 		<div className='register-form'>
 			<form method="POST" onSubmit={registerHandler}>
