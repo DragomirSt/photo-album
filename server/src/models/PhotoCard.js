@@ -20,6 +20,9 @@ const PhotoCardSchema = new moongose.Schema({
     _ownerId: {
         type: moongose.Types.ObjectId,
         ref: 'User'
+    },
+    likes: {
+        type: Number,
     }
 
 });
