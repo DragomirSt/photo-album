@@ -32,6 +32,9 @@ const Details = () => {
             .then(res => res.json())
             .then(result => {
                 setPhotoCard(result);
+            })
+            .catch(err => {
+                alert(err)
             });
     };
 
