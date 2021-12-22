@@ -16,3 +16,7 @@ exports.deletePhoto = (id) => {
 exports.getOne = (id) => {
     return PhotoCard.findById(id);
 };
+
+exports.update = (id, data) => {
+    return PhotoCard.findByIdAndUpdate(id, data);
+}
