@@ -9,7 +9,6 @@ const config = require('./config/config.json')[env];
 const router = require('./routes');
 const { verifyToken } = require('./middlewares/authMiddleware')
 
-app.use('/uploads', express.static('uploads'));
 app.use(cors());
 app.use(express.json());
 app.use(verifyToken);
