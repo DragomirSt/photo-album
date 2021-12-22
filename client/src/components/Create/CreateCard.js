@@ -6,31 +6,28 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
 import * as photo from '../../servecies/photo';
+
 const Create = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const createPhotoCard = (e) => {
         e.preventDefault();
-        const data = new FormData();
         let formData = new FormData(e.target);
 
         let name = formData.get('name');
         let genre = formData.get('genre');
         let imageUrl = formData.get('imageUrl');
 
-        data.append('name', name)
-        data.append('genre', genre);
-        data.append('imageUrl', imageUrl);
-        console.log(data)
-
-        photo.createCard(data, user.accessToken)
+        photo.createCard({
+            name,
+            genre,
+            imageUrl
+        }, user.accessToken)
             .then(res => {
                 navigate('/');
             })
-
     };
-
 
     return (
         <div className='create-form'>
@@ -54,7 +51,7 @@ const Create = () => {
                     <h3>Photo: </h3>
                 </div>
                 <div className='image'>
-                    <input type="file" name="imageUrl" className="file"  />
+                    <input type="text" name="imageUrl" className="imageUrl" placeholder='Upload yor image ....' />
                 </div>
 
                 <input className="button-submit" type="submit" value="Add New Photo" />
