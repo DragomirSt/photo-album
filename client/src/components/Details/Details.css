@@ -1,0 +1,63 @@
+.photo-details {
+   position: relative;
+    margin-left: 30px;
+    margin-top: 10px;
+    width: 900px;
+    height: 750px;
+    padding: 25px;
+    border: 3px solid rgb(63, 62, 62);
+    background-color: rgb(109, 15, 15);
+}
+
+.buttons {
+    position: relative;
+    height: 10%;
+    padding-left: 40px;
+  
+}
+
+.button {
+    background-color: burlywood;
+    width: 130px;
+    height: 35px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-style: oblique;
+}
+
+.like-section {
+    position: relative;
+    width: 0px;
+    height: 35px;
+    padding-left: 250px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-style: oblique;
+}
+
+.likes {
+    background-color: burlywood;
+    position: relative;
+    width: 100px;
+    margin-left: 600px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+.like-button {
+    width: 90px;
+    height: 30px;
+    background-color: burlywood;
+}
+
+.button-section {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.photo-info-section {
+    padding-left: 50px;
+    background-color:burlywood ;
+    height: 30px;
+}
