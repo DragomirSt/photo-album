@@ -1,12 +1,13 @@
 
 export const createCard = (data, token) => {
-
+    
     return fetch('/data/photos', {
         method: 'POST',
         headers: {
-            'X-Authorization': token
+        'content-type': 'application/json',
+        'X-Authorization': token
         },
-        body: data
+        body: JSON.stringify(data)
     })
         .then(result => {
             return result
