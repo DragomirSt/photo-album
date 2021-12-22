@@ -14,6 +14,7 @@ import Create from './components/Create/CreateCard';
 import AllPhotos from './components/Home/AllPhotos';
 import DeleteComponent from './components/Delete/DeleteComponent';
 import Details from './components/Details/Details';
+import Edit from './components/Edit/Edit';
 
 const initialUserState = {
   _id: null,
@@ -32,7 +33,7 @@ function App() {
     setUser(initialUserState);
   };
 
-  
+
   return (
     <AuthContext.Provider value={{ user, setUserSessionData, logoutUser }}>
       <div>
@@ -49,6 +50,7 @@ function App() {
               <Route path="/logout" element={<Logout />} />
               <Route path="/delete/:id" element={<DeleteComponent />} />
               <Route path="/details/:id" element={<Details />} />
+              <Route path="/edit/:id" element={<Edit />} />
             </Routes>
           </main>
           <footer id="site-footer">
