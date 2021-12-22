@@ -1,0 +1,62 @@
+
+.edit-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color:  rgb(109, 15, 15);
+    border-color:  #0000003f;
+    width: 425px;
+    height: 500px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.inputs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: fit-content;
+}
+
+.button-submit {
+    height: 40px;
+    width: 140px;
+    margin-top: 100px;
+    margin-left: 160px;
+    background-color: burlywood;
+    text-decoration: rgb(160, 119, 119);  
+}
+
+.name {
+    width:220px;
+    height: 25px;
+}
+
+.genre {
+    width:220px;
+    height: 25px;
+}
+
+.imageUrl {
+    width:220px;
+    height: 25px;
+}
+
+.edit-form-text {
+     background-color: burlywood;
+     text-align: center;
+}
+
+.edit-label {
+    color: burlywood;
+}
+
+.genre-label {
+    color: burlywood;
+}
+
+.image-label {
+    color: burlywood;
+}
