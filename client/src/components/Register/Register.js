@@ -52,7 +52,7 @@ const Register = () => {
 					<h3>Confirm Password: </h3>
 				</div>
 				<div className='inputs-re-password'>
-					<input type="password" name="password" className="password" placeholder="Password" />
+					<input type="password" name="confirm-pass" className="password" placeholder="Password" />
 				</div>
 				<input className="button-submit" type="submit" value="Register" />
 			</form>
