@@ -11,7 +11,7 @@ const DeleteComponent = () => {
 
     useEffect(() => {
         photo.deletePhoto(id);
-        navigate('/');
+        navigate('/create');
 
     }, [id, navigate]);
 
