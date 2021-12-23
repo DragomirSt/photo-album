@@ -18,6 +18,7 @@ const Register = () => {
 
 		if (password !== repeatePassword) {
 			alert('Password missmatch');
+			return;
 		}
 
 		authService.register(email, password)
