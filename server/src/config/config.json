@@ -2,7 +2,7 @@
 {
     "development": {
         "PORT": 3030,
-        "DB_CONNECTION_STRING": "mongodb://localhost:27017/PhotoSharing"
+        "DB_CONNECTION_STRING": "mongodb+srv://DragomirStoyanov:0040drago@cluster0.pjikl.mongodb.net/PhotoAlbum?retryWrites=true&w=majority"
     },
     "production": {}
 }
