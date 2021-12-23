@@ -1,17 +1,16 @@
 
-export const createCard = (data, token) => {
+export const createCard = async (data, token) => {
 
-    return fetch('/data/photos', {
+    const respone = await fetch('/data/photos', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
             'X-Authorization': token
         },
         body: JSON.stringify(data)
-    })
-        .then(result => {
-            return result
-        });
+    });
+    let result = await respone.json();
+    return result;
 };
 
 export const getAllPhotos = () => {
