@@ -16,6 +16,11 @@ const Register = () => {
 		let password = formData.get('password');
 		let repeatePassword = formData.get('confirm-pass');
 
+		if(email.length < 1 || password.length < 1 || repeatePassword.length < 1) {
+			alert('All input fields are required');
+			return;
+		}
+
 		if (password !== repeatePassword) {
 			alert('Password missmatch');
 			return;

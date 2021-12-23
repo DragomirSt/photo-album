@@ -27,6 +27,11 @@ const Edit = () => {
         let genre = formData.get('genre');
         let imageUrl = formData.get('imageUrl');
 
+        if(name.length < 1 || genre.length < 1 || imageUrl.length < 1) {
+            alert('All input fields are required');
+            return;
+        }
+
         photo.updatePhoto({
             name,
             genre,

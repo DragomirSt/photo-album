@@ -19,6 +19,11 @@ const Create = () => {
         let genre = formData.get('genre');
         let imageUrl = formData.get('imageUrl');
 
+        if (name.length < 1 || genre.length < 1 || imageUrl.length < 1) {
+            alert('All input fields are required');
+            return;
+        }
+
         photo.createCard({
             name,
             genre,
@@ -30,11 +35,12 @@ const Create = () => {
             .catch(err => {
                 alert(err);
             });
+
     };
 
     return (
         <div className='create-form'>
-            <form method="POST" onSubmit={createPhotoCard}>
+            <form method="POST" onSubmit={createPhotoCard} >
                 <div className='add-form-text'>
                     <h2>Add New Photo</h2>
                 </div>
