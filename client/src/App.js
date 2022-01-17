@@ -16,6 +16,7 @@ import DeleteComponent from './components/Delete/DeleteComponent';
 import Details from './components/Details/Details';
 import Edit from './components/Edit/Edit';
 import MyPhotos from './components/MyPhotos/MyPhotos';
+import Comment from './components/Comment/Comment'
 
 const initialUserState = {
   _id: null,
@@ -53,6 +54,7 @@ function App() {
               <Route path="/details/:id" element={<Details />} />
               <Route path="/edit/:id" element={<Edit />} />
               <Route path="/my-photos" element={<MyPhotos />} />
+              <Route path="/comments/:id" element={<Comment/>} />
             </Routes>
           </main>
         </div>
