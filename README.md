@@ -10,7 +10,7 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-###
+### `functionality`
 
 Not Logged in users can view all of the photos as like them or add comments, as well login or regeister.
 
