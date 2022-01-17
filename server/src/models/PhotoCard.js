@@ -8,14 +8,11 @@ const PhotoCardSchema = new moongose.Schema({
     },
     imageUrl: {
         type: String,
-        required: true
+        required: true   
     },
     genre: {
         type: String,
         required: true
-    },
-    description: {
-        type: String,
     },
     _ownerId: {
         type: moongose.Types.ObjectId,
@@ -23,7 +20,10 @@ const PhotoCardSchema = new moongose.Schema({
     },
     likes: {
         type: Number,
-    }
+    },
+    comments: [
+        
+    ]
 
 });
 
