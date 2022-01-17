@@ -4,8 +4,9 @@ const router = express.Router();
 
 const photoService = require('../servecies/photoCard');
 const { isAuth } = require('../middlewares/authMiddleware');
-const PhotoCard = require('../models/PhotoCard');
 
+const PhotoCard = require('../models/PhotoCard');
+const Comment = require('../models/Comments');
 
 router.get('/', async (req, res) => {
     try {
@@ -58,14 +59,14 @@ router.get('/:id', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-   try {
-       await photoService.update(req.params.id, req.body);
-       res.json({message: 'Sucessfully updated'});
+    try {
+        await photoService.update(req.params.id, req.body);
+        res.json({ message: 'Sucessfully updated' });
 
-   } catch (error) {
-       res.status(400).json({message: 'Error'});
-   }
-   
+    } catch (error) {
+        res.status(400).json({ message: 'Error' });
+    }
+
 });
 
 router.patch('/likes', async (req, res) => {
@@ -83,6 +84,21 @@ router.patch('/likes', async (req, res) => {
 
 });
 
+router.post('/comment', async (req, res) => {
+    const comment = await Comment.create(req.body);
 
+    return PhotoCard.findByIdAndUpdate(req.body.commentId, {
+        $push: { comments: comment }
+    }, {
+        new: true
+    }).exec((err, result) => {
+        if (err) {
+            return res.status(400).json({ message: 'Something went wrong' });
+        } else {
+            return res.status(200).json({ result, message: 'Successfully added new comment' });
+        }
+    });
+
+});
 
 module.exports = router;
