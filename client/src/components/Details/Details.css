@@ -2,8 +2,8 @@
    position: relative;
     margin-left: 30px;
     margin-top: 10px;
-    width: 900px;
-    height: 750px;
+    width: 1000px;
+    height: auto;
     padding: 25px;
     border: 3px solid rgb(63, 62, 62);
     background-color: rgb(109, 15, 15);
@@ -16,20 +16,16 @@
   
 }
 
+.photo-interaction-buttons {
+    position: relative;
+    height: 10%;
+    padding-left: 40px;
+}
+
 .button {
     background-color: burlywood;
     width: 130px;
     height: 35px;
-    text-align: center;
-    font-size: 1.3rem;
-    font-style: oblique;
-}
-
-.like-section {
-    position: relative;
-    width: 0px;
-    height: 35px;
-    padding-left: 250px;
     text-align: center;
     font-size: 1.3rem;
     font-style: oblique;
@@ -60,4 +56,18 @@
     padding-left: 50px;
     background-color:burlywood ;
     height: 30px;
+}
+
+.comments-div {
+    overflow: auto;
+    height: 150px;
+    background-color:burlywood ;
+}
+
+.comments-title {
+    color:burlywood ;
+}
+
+.comment-text {
+    border-bottom: 1px solid black;
 }
