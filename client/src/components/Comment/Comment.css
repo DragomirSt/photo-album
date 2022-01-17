@@ -1,0 +1,37 @@
+
+.create-comment>.form>textarea {
+    resize: none;
+    width: 400px;
+    height: 100px;
+    margin-top: 22px;
+    margin-bottom: 28px;
+    padding: 5px;
+}
+
+.create-comment {
+    margin-top: 60px;
+    margin-left: 100px;
+    position: relative;
+    text-align: center;
+    width: 700px;
+    height: auto;
+    padding: 40px;
+    box-sizing: border-box;
+    background: rgb(109, 15, 15);
+}
+
+.create-comment>label {
+    color: burlywood;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.btn-submit {
+    margin-right: 200px;
+    font-size: 20px;
+    background-color: burlywood;
+    cursor:pointer;
+
+}
