@@ -22,7 +22,13 @@ const Create = () => {
         if (name.length < 1 || genre.length < 1 || imageUrl.length < 1) {
             alert('All input fields are required');
             return;
-        }
+        };
+
+        const regex = /^https?:\/\//i;
+        if(!imageUrl.match(regex)) {
+            alert('Image Url must be a valid http/s link!');
+            return;
+        };
 
         photo.createCard({
             name,
