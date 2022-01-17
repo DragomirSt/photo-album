@@ -9,17 +9,34 @@ import PhotoCard from '../Home/PhotoCard';
 const AllPhotos = () => {
 
     const [photos, setPhotos] = useState([]);
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
+        setLoading(true);
+
         photo.getAllPhotos()
             .then(result => {
-            
+
                 setPhotos(result);
             })
             .catch(err => {
-               alert(err);
+                alert(err);
+            })
+            .finally(() => {
+                setLoading(false);
             })
 
     }, []);
+
+    if (loading) {
+        return (
+            <div className='loading-div'>
+                <div className='loading-box-text'>
+                    <h2 className='loading-text'>Loading photos ...</h2>
+                </div>
+            </div>
+        );
+    };
 
     return (
         <div className='all-photos'>
