@@ -10,6 +10,7 @@ import * as photo from '../../servecies/photo';
 const Details = () => {
     const { id } = useParams();
     const [photoCard, setPhotoCard] = useState({});
+    const [comments, setComments] = useState([]);
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
@@ -17,7 +18,11 @@ const Details = () => {
         photo.getCertainPhoto(id)
             .then(result => {
                 setPhotoCard(result);
-            });
+                setComments(result.comments);
+            })
+            .catch(err => {
+                alert(err)
+            })
 
     }, [id]);
 
@@ -46,10 +51,15 @@ const Details = () => {
 
     );
     const guestButton = (
+        <div className='photo-interaction-buttons'>
         <p className='like-section'>
-            <button className='like-button' onClick={() => likePhoto(id)}>Like Photo</button>
-        </p>
+                <button className='like-button' onClick={() => likePhoto(id)}>Like Photo</button>
+            </p>
+            <p className='button'><Link to={`/comments/${id}`}>Add Comment</Link></p>
+        </div>
+            
     );
+   
     return (
         <div className="photo-details">
             <div className='photo-info-section'>
@@ -64,7 +74,10 @@ const Details = () => {
                     ? onwerButtons
                     : guestButton}
             </div>
-
+            <h3 className='comments-title'>Comments:</h3>
+            <div className='comments-div'>
+                {!!comments && comments.map((x, index) => <p className='comment-text'>{index + 1}:  {x.comment}</p>)}
+            </div>
         </div>
     );
 };
