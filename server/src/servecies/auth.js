@@ -3,18 +3,15 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/User');
-
 const constantStrings = require('../utils/constants');
 
-
 exports.register = async (email, password) => {
-    try {
-        return User.create({ email, password });
 
-    } catch (error) {
-        throw error;
+    const isExisting = await User.findOne({ email });
+    if (isExisting) {
+        throw new Error('User with this email already exists!');
     }
-
+    return User.create({ email, password });
 };
 
 exports.login = (email, password) => {
@@ -43,7 +40,7 @@ const createToken = (user) => {
     try {
         let token = jwt.sign(payload, constantStrings.SECRET,
             { expiresIn: '1h' });
-            
+
         return token;
 
     } catch (error) {
