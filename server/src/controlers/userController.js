@@ -14,8 +14,8 @@ router.post('/register', async (req, res) => {
         res.json({ message: 'Registration has been successfull!', userId: user._id });
 
     } catch (error) {
-        throw new Error('Sorry');
-    }
+        res.status(400).json({ message: error.message })
+    };
 
 });
 
@@ -23,7 +23,7 @@ router.post('/login', (req, res) => {
     let { email, password } = req.body;
 
     if (email && password !== undefined) {
-        
+
         authService.login(email, password)
             .then((userData) => {
                 let user = userData.user
@@ -36,7 +36,7 @@ router.post('/login', (req, res) => {
                 });
             })
             .catch(() => {
-                res.status(400).json({message: 'Wrong username or password'});
+                res.status(400).json({ message: 'Wrong username or password' });
             });
     }
 
