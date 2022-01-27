@@ -27,9 +27,9 @@
    
 }
 
-.topnav a:hover {
+a:focus {
     background-color:rgb(109, 15, 15);
-    text-decoration: rgb(160, 119, 119);   
+    text-decoration: rgb(160, 119, 119);
 }
 
 
