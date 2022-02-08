@@ -4,12 +4,11 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color:  rgb(109, 15, 15);
+    background-color:  rgba(156, 154, 154, 0.63);
     border-color:  #0000003f;
     width: 425px;
     height: 500px;
     margin-top: 20px;
-    margin-left: 40px;
 }
 
 .inputs {
@@ -25,8 +24,7 @@
     width: 140px;
     margin-top: 100px;
     margin-left: 160px;
-    background-color: burlywood;
-    text-decoration: rgb(160, 119, 119);  
+    background-color: whitesmoke;
 }
 
 .name {
@@ -45,18 +43,18 @@
 }
 
 .add-form-text {
-     background-color: burlywood;
+     background-color: whitesmoke;
      text-align: center;
 }
 
 .create-label {
-    color: burlywood;
+    color: whitesmoke;
 }
 
 .genre-label {
-    color: burlywood;
+    color: whitesmoke;
 }
 
 .image-label {
-    color: burlywood;
+    color: whitesmoke;
 }

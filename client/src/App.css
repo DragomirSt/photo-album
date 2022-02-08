@@ -1,15 +1,7 @@
 
 .site-content {
     display: flex;
-    float: left;
     flex-wrap: wrap; 
-    justify-content: space-evenly;
-    flex-direction: row; 
+    justify-content: center;
 }
 
-footer {
-    margin-top: 900px;
-    background-color: burlywood;
-    height: 50px;
-    text-align: center;
-}

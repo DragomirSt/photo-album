@@ -44,39 +44,39 @@ const Details = () => {
     };
 
     const onwerButtons = (
-        <div className='buttons'>
-            <p className='button'><Link to={`/edit/${id}`}>Edit</Link></p>
-            <p className='button'><Link to={`/delete/${id}`}>Delete</Link></p>
+        <div>
+            <div>
+            <Link to={`/edit/${id}`}>Edit</Link> / <Link to={`/delete/${id}`}>Delete</Link>
+            </div>   
         </div>
-
     );
     const guestButton = (
-        <div className='photo-interaction-buttons'>
-        <p className='like-section'>
-                <button className='like-button' onClick={() => likePhoto(id)}>Like Photo</button>
-            </p>
-            <p className='button'><Link to={`/comments/${id}`}>Add Comment</Link></p>
+        <div>
+            <button className='like-button' onClick={() => likePhoto(id)}>Like Photo</button>
+            <Link to={`/comments/${id}`}>Add Comment</Link>
         </div>
-            
     );
-   
+
     return (
         <div className="photo-details">
-            <div className='photo-info-section'>
-                <label>{photoCard.name}, Genre: {photoCard.genre}</label>
+            <div className='photo-section'>
+                {photoCard.name}, Genre: {photoCard.genre}
+                <img src={photoCard.imageUrl} width={750} height={500} alt='' />
             </div>
-            <div>
-                <p className="img"><img src={photoCard.imageUrl} width={750} height={500} alt='' /></p>
-                <h3 className='likes'>Likes: {photoCard.likes}</h3>
+            <div className='photo-likes'>
+                Likes: {photoCard.likes}
             </div>
             <div className='button-section'>
-                {user._id === photoCard._ownerId
+                {user._id && (user._id === photoCard._ownerId
                     ? onwerButtons
-                    : guestButton}
+                    : guestButton)}
+                    
             </div>
-            <h3 className='comments-title'>Comments:</h3>
-            <div className='comments-div'>
-                {!!comments && comments.map((x, index) => <p className='comment-text'>{index + 1}:  {x.comment}</p>)}
+            <div className='comment-section'>
+                <h3 className='comments-title'>Comments:</h3>
+                <div className='comments-div'>
+                    {!!comments && comments.map((x, index) => <p className='comment-text'>{index + 1}:  {x.comment}</p>)}
+                </div>
             </div>
         </div>
     );

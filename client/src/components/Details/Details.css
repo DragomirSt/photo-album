@@ -1,73 +1,36 @@
 .photo-details {
-   position: relative;
-    margin-left: 30px;
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "card card card"
+    "buttons . likes"
+    "comments comments comments";
     margin-top: 10px;
-    width: 1000px;
-    height: auto;
-    padding: 25px;
-    border: 3px solid rgb(63, 62, 62);
-    background-color: rgb(109, 15, 15);
-}
-
-.buttons {
-    position: relative;
-    height: 10%;
-    padding-left: 40px;
-  
-}
-
-.photo-interaction-buttons {
-    position: relative;
-    height: 10%;
-    padding-left: 40px;
-}
-
-.button {
-    background-color: burlywood;
-    width: 130px;
-    height: 35px;
-    text-align: center;
-    font-size: 1.3rem;
-    font-style: oblique;
-}
-
-.likes {
-    background-color: burlywood;
-    position: relative;
-    width: 100px;
-    margin-left: 600px;
-    text-align: center;
-    font-size: 1.3rem;
-    font-style: italic;
-}
-
-.like-button {
-    width: 90px;
-    height: 30px;
-    background-color: burlywood;
-}
-
-.button-section {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.photo-info-section {
-    padding-left: 50px;
-    background-color:burlywood ;
-    height: 30px;
+    width: 750px;
+    padding: 1.5rem;
+    background-color: rgba(156, 154, 154, 0.63);
 }
 
 .comments-div {
     overflow: auto;
     height: 150px;
-    background-color:burlywood ;
+    background-color: whitesmoke;
 }
 
-.comments-title {
-    color:burlywood ;
+.comment-section {
+    grid-area: comments;
 }
 
-.comment-text {
-    border-bottom: 1px solid black;
+.button-section {
+    grid-area: buttons;
+    justify-self: center;
+}
+
+.photo-section {
+    grid-area: card;
+}
+
+.photo-likes {
+    grid-area: likes;
 }

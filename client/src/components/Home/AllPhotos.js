@@ -1,5 +1,6 @@
 
-import './AllPhotos.css'
+import './AllPhotos.css';
+import './PhotoCard.css';
 
 import { useState, useEffect } from 'react';
 

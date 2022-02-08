@@ -4,12 +4,10 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color:  rgb(109, 15, 15);
-    border-color:  #0000003f;
+    background-color: rgba(156, 154, 154, 0.63);
     width: 425px;
     height: 500px;
     margin-top: 20px;
-    margin-left: 40px;
 }
 
 .inputs {
@@ -40,9 +38,7 @@
 
 
 .button-submit {
-    background-color: burlywood;
-    text-decoration: rgb(160, 119, 119);
-    margin-bottom: 60px;
+    background-color: whitesmoke; 
 }
 
 .email-input {
@@ -56,18 +52,18 @@
 }
 
 .register-form-text {
-     background-color: burlywood;
+     background-color: whitesmoke;
      text-align: center;
 }
 
 .email-label {
-    color: burlywood;
+    color: whitesmoke;
 }
 
 .password-label {
-    color: burlywood;
+    color: whitesmoke
 }
 
 .re-password-label {
-    color: burlywood;
+    color: whitesmoke;
 }

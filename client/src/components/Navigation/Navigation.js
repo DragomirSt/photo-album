@@ -25,13 +25,13 @@ const Navagation = () => {
 
     return (
         <div className='topnav'>
-            <nav className='nav'>
+            <section className='nav'>
                 <Link to="/"></Link>
                 <Link to="/all-photos">Photos</Link>
                 {user.email
                     ? userNavigation
                     : guestNavigation}
-            </nav>
+            </section>
         </div>
     );
 };

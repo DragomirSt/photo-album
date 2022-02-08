@@ -4,21 +4,8 @@
 
 }
 
-.photo-card {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
-    width: 450px;
-    height: auto;
-    padding: 15px;
-    border: 3px solid rgb(63, 62, 62);
-    background-color: rgb(109, 15, 15);
-    
-}
-
 .button {
-    background-color: burlywood;
+    background-color: whitesmoke;
     width: 130px;
     height: auto;
     text-align: center;
@@ -26,6 +13,11 @@
     font-style: oblique;
 }
 
+.photo-card {
+    width: 500px;
+    height: auto;
+    background-color: whitesmoke;
+}
 
 
 

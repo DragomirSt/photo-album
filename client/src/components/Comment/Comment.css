@@ -17,11 +17,11 @@
     height: auto;
     padding: 40px;
     box-sizing: border-box;
-    background: rgb(109, 15, 15);
+    background: rgba(156, 154, 154, 0.63);
 }
 
 .create-comment>label {
-    color: burlywood;
+    color: whitesmoke;
     font-size: 28px;
     text-align: center;
     font-weight: 700;
@@ -31,7 +31,7 @@
 .btn-submit {
     margin-right: 200px;
     font-size: 20px;
-    background-color: burlywood;
+    background-color: whitesmoke;
     cursor:pointer;
 
 }
