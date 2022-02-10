@@ -33,4 +33,14 @@
 
 .photo-likes {
     grid-area: likes;
+    justify-self: end;
 }
+
+.owner-buttons {
+    width: 115px;
+    background-color: whitesmoke;
+    text-align: center;
+    font: 1em sans-serif;
+    font-size: medium;
+}
+

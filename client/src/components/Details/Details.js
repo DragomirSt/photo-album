@@ -45,9 +45,9 @@ const Details = () => {
 
     const onwerButtons = (
         <div>
-            <div>
-            <Link to={`/edit/${id}`}>Edit</Link> / <Link to={`/delete/${id}`}>Delete</Link>
-            </div>   
+            <div className='owner-buttons'>
+                <Link to={`/edit/${id}`}>Edit</Link> / <Link to={`/delete/${id}`}>Delete</Link>
+            </div>
         </div>
     );
     const guestButton = (
@@ -70,7 +70,7 @@ const Details = () => {
                 {user._id && (user._id === photoCard._ownerId
                     ? onwerButtons
                     : guestButton)}
-                    
+
             </div>
             <div className='comment-section'>
                 <h3 className='comments-title'>Comments:</h3>

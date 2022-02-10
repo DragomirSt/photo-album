@@ -93,7 +93,7 @@ router.post('/comment', async (req, res) => {
         new: true
     }).exec((err, result) => {
         if (err) {
-            return res.status(400).json({ message: 'Something went wrong' });
+            return res.status(400).json({ message: 'Error' });
         } else {
             return res.status(200).json({ result, message: 'Successfully added new comment' });
         }

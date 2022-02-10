@@ -24,7 +24,7 @@ const Comment = () => {
                 return res.json();
             })
             .catch(err => {
-                alert(err);;
+                alert(err);
             })
             .finally(() => {
                 navigate(`/details/${id}`);

@@ -10,35 +10,9 @@
     margin-top: 20px;
 }
 
-.inputs {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: fit-content;
-}
-
-.inputs-password {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly; 
-    width: fit-content;
-    height: 40px;
-}
-
-.inputs-re-password {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly; 
-    width: fit-content;
-    height: 40px;
-}
-
-
 .button-submit {
     background-color: whitesmoke; 
+    font: 1em sans-serif;
 }
 
 .email-input {

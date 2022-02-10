@@ -68,9 +68,7 @@ const Create = () => {
                 <div className='image'>
                     <input type="text" name="imageUrl" className="imageUrl" placeholder='Upload yor image ....' />
                 </div>
-
                 <input className="button-submit" type="submit" value="Add New Photo" />
-
             </form>
         </div>
     );
