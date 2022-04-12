@@ -7,11 +7,16 @@ import { AuthContext } from "../../contexts/AuthContext";
 import * as photo from '../../servecies/photo';
 import MyPhotoCard from "./MyPhotoCard";
 
+import toast from 'react-hot-toast';
+import { loadingNotification } from '../../notifications/notification';
+
 const MyPhotos = () => {
     const { user } = useContext(AuthContext);
     const [myPhoto, setMyPhotos] = useState([]);
 
     useEffect(() => {
+        loadingNotification();
+
         photo.getAllPhotos()
             .then(result => {
                 const photos = result.filter(x => x._ownerId === user._id);
@@ -20,6 +25,9 @@ const MyPhotos = () => {
             .catch(err => {
                 alert(err);
             })
+            .finally(() => {
+                toast.dismiss(loadingNotification());
+            });
 
     }, [user._id]);
 
@@ -30,8 +38,7 @@ const MyPhotos = () => {
             </section>
         </div>
 
-    )
-
+    );
     return (
         <div className='my-photos'>
             {myPhoto.length > 0

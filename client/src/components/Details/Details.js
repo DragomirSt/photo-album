@@ -6,15 +6,15 @@ import { useParams, Link } from "react-router-dom";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import * as photo from '../../servecies/photo';
+import { successNotification } from '../../notifications/notification';
 
 const Details = () => {
     const { id } = useParams();
     const [photoCard, setPhotoCard] = useState({});
     const [comments, setComments] = useState([]);
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
 
     useEffect(() => {
-
         photo.getCertainPhoto(id)
             .then(result => {
                 setPhotoCard(result);
@@ -23,7 +23,6 @@ const Details = () => {
             .catch(err => {
                 alert(err)
             })
-
     }, [id]);
 
     const likePhoto = (id) => {
@@ -36,7 +35,8 @@ const Details = () => {
         })
             .then(res => res.json())
             .then(result => {
-                setPhotoCard(result);
+                successNotification([result.message]);
+                setPhotoCard(result.like);
             })
             .catch(err => {
                 alert(err)
@@ -44,16 +44,16 @@ const Details = () => {
     };
 
     const onwerButtons = (
-        <div>
+        <>
             <div className='owner-buttons'>
                 <Link to={`/edit/${id}`}>Edit</Link> / <Link to={`/delete/${id}`}>Delete</Link>
             </div>
-        </div>
+        </>
     );
     const guestButton = (
         <div>
             <button className='like-button' onClick={() => likePhoto(id)}>Like Photo</button>
-            <Link to={`/comments/${id}`}>Add Comment</Link>
+            <Link to={`/comment/${id}`}>Add Comment</Link>
         </div>
     );
 
@@ -61,6 +61,8 @@ const Details = () => {
         <div className="photo-details">
             <div className='photo-section'>
                 {photoCard.name}, Genre: {photoCard.genre}
+                <br></br>
+                <br></br>
                 <img src={photoCard.imageUrl} width={750} height={500} alt='' />
             </div>
             <div className='photo-likes'>

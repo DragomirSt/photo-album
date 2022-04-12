@@ -7,13 +7,14 @@ import { useState, useEffect } from 'react';
 import * as photo from '../../servecies/photo';
 import PhotoCard from '../Home/PhotoCard';
 
-const AllPhotos = () => {
+import toast from 'react-hot-toast';
+import { loadingNotification } from '../../notifications/notification';
 
+const AllPhotos = () => {
     const [photos, setPhotos] = useState([]);
-    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        setLoading(true);
+        loadingNotification();
 
         photo.getAllPhotos()
             .then(result => {
@@ -24,20 +25,10 @@ const AllPhotos = () => {
                 alert(err);
             })
             .finally(() => {
-                setLoading(false);
-            })
-
+                toast.dismiss(loadingNotification());
+            });
+            
     }, []);
-
-    if (loading) {
-        return (
-            <div className='loading-div'>
-                <div className='loading-box-text'>
-                    <h2 className='loading-text'>Loading photos ...</h2>
-                </div>
-            </div>
-        );
-    };
 
     return (
         <div className='all-photos'>

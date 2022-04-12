@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
 import * as photo from '../../servecies/photo';
+import { errorNotification, successNotification } from '../../notifications/notification';
 
 const Create = () => {
     const { user } = useContext(AuthContext);
@@ -20,15 +21,12 @@ const Create = () => {
         let imageUrl = formData.get('imageUrl');
 
         if (name.length < 1 || genre.length < 1 || imageUrl.length < 1) {
-            alert('All input fields are required');
-            return;
+            return errorNotification(['All input fields are required.']);
         };
-
         const regex = /^https?:\/\//i;
-        if(!imageUrl.match(regex)) {
-            alert('Image Url must be a valid http/s link!');
-            return;
-        };
+        if (!imageUrl.match(regex)) {
+            return errorNotification(['Image Url must be a valid http/s link.']);
+        }
 
         photo.createCard({
             name,
@@ -36,12 +34,15 @@ const Create = () => {
             imageUrl
         }, user.accessToken)
             .then(res => {
-                navigate('/');
+                successNotification([res.message]);
+                setTimeout(() => {
+                    navigate('/');
+                }, 1700)
+
             })
             .catch(err => {
-                alert(err);
+                errorNotification([err]);
             });
-
     };
 
     return (

@@ -3,12 +3,12 @@ import './Register.css'
 
 import { useNavigate } from 'react-router-dom';
 import * as authService from '../../servecies/auth';
+import { errorNotification, successNotification } from '../../notifications/notification';
 
 const Register = () => {
 	const navigate = useNavigate();
-
+	
 	const registerHandler = (e) => {
-
 		e.preventDefault();
 		let formData = new FormData(e.target);
 
@@ -16,23 +16,22 @@ const Register = () => {
 		let password = formData.get('password');
 		let repeatePassword = formData.get('confirm-pass');
 
-		if(email.length < 1 || password.length < 1 || repeatePassword.length < 1) {
-			alert('All input fields are required');
-			return;
+		if (email.length < 1 || password.length < 1 || repeatePassword.length < 1) {
+			return errorNotification(['All input fields are requied.']);
 		}
-
 		if (password !== repeatePassword) {
-			alert('Password missmatch');
-			return;
+			return errorNotification(['Password and repeated password missmatch.']);
 		}
-
+		
 		authService.register(email, password)
 			.then(res => {
-
-				navigate('/login');
+				successNotification([res.message]);
+				setTimeout(() => {
+					navigate('/login');
+				}, 1800)
 			})
 			.catch(err => {
-				alert(err);
+				errorNotification([err]);
 			});
 	};
 

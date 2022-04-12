@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../contexts/AuthContext';
 import * as authService from '../../servecies/auth';
+import { errorNotification, successNotification } from '../../notifications/notification';
 
 const Login = () => {
     const { setUserSessionData } = useContext(AuthContext);
@@ -17,17 +18,21 @@ const Login = () => {
 
         let email = formData.get('email');
         let password = formData.get('password');
+        if (email.length < 1 || password.length < 1) {
+            return errorNotification(['All input fields are requiered!']);
+        }
 
         authService.login(email, password)
             .then(authData => {
-                
                 setUserSessionData(authData);
-                navigate('/all-photos')
+                successNotification([authData.message]);
+
+                setTimeout(() => {
+                    navigate('/all-photos');
+                }, 1600);
             })
             .catch(err => {
-                //Toddo: error handling
-                alert(err)
-
+                errorNotification([err]);
             });
     };
 

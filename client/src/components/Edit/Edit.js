@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import * as photo from '../../servecies/photo';
+import { successNotification, errorNotification } from '../../notifications/notification';
 
 const Edit = () => {
     const { id } = useParams();
@@ -27,9 +28,8 @@ const Edit = () => {
         let genre = formData.get('genre');
         let imageUrl = formData.get('imageUrl');
 
-        if(name.length < 1 || genre.length < 1 || imageUrl.length < 1) {
-            alert('All input fields are required');
-            return;
+        if (name.length < 1 || genre.length < 1 || imageUrl.length < 1) {
+            return errorNotification(['All input fields are requied.']);
         }
 
         photo.updatePhoto({
@@ -37,14 +37,17 @@ const Edit = () => {
             genre,
             imageUrl
         }, id)
-            .then(res => {
-                navigate(`/details/${id}`);
+            .then(res => res.json())
+            .then(result => {
+                successNotification([result.message]);
+                setTimeout(() => {
+                    navigate(`/details/${id}`);
+                }, 1700);
             })
             .catch(err => {
-                alert(err)
+                errorNotification([err]);
             });
-
-    }
+    };
 
     return (
         <div className='edit-form'>

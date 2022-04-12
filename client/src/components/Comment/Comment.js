@@ -2,6 +2,7 @@
 import './Comment.css';
 
 import { useParams, useNavigate } from "react-router-dom";
+import { successNotification, errorNotification } from '../../notifications/notification';
 
 const Comment = () => {
     const { id } = useParams();
@@ -12,6 +13,9 @@ const Comment = () => {
         e.preventDefault()
         let formData = new FormData(e.target)
         let comment = formData.get('comment');
+        if (comment.length < 3) {
+            return errorNotification(['Please write your comment.']);
+        }
 
         return fetch('/data/photos/comment', {
             method: 'POST',
@@ -20,15 +24,19 @@ const Comment = () => {
             },
             body: JSON.stringify({ commentId: id, comment, commentedBy: id })
         })
-            .then(res => {
-                return res.json();
+            .then(res => res.json())
+            .then(result => {
+                successNotification([result.message]);
+                return result;
             })
             .catch(err => {
-                alert(err);
+                errorNotification([err]);
             })
             .finally(() => {
-                navigate(`/details/${id}`);
-            })
+                setTimeout(() => {
+                    navigate(`/details/${id}`);
+                }, 1700);
+            });
     };
 
     return (
