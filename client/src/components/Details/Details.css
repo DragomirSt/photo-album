@@ -9,17 +9,21 @@
     margin-top: 10px;
     width: 750px;
     padding: 1.5rem;
-    background-color: rgba(156, 154, 154, 0.63);
+    background-color: rgb(84, 94, 104);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .comments-div {
     overflow: auto;
     height: 150px;
-    background-color: whitesmoke;
+    background-color: antiquewhite;
 }
 
 .comment-section {
     grid-area: comments;
+    font-size: 18px;
 }
 
 .button-section {
@@ -29,18 +33,23 @@
 
 .photo-section {
     grid-area: card;
+    font-size: 23px;
+    text-align: center;
+    color: antiquewhite;
 }
 
 .photo-likes {
     grid-area: likes;
     justify-self: end;
+    font-size: 18px;
+    color: antiquewhite;;
 }
 
 .owner-buttons {
     width: 115px;
-    background-color: whitesmoke;
     text-align: center;
     font: 1em sans-serif;
     font-size: medium;
+    font-size: 18px;
 }
 

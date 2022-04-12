@@ -1,21 +1,21 @@
 .img {
     object-fit: cover;
     padding: 5px;
-
 }
 
 .button {
-    background-color: whitesmoke;
+    background-color:  #8c88a3d0;
     width: 130px;
     height: auto;
     text-align: center;
     font-size: 1.3rem;
-    font-style: oblique;
+   
 }
 
 .photo-card {
     width: 500px;
     height: auto;
+    background-color: rgb(84, 94, 104);
 }
 
 

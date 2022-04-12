@@ -4,15 +4,19 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color:  rgba(156, 154, 154, 0.63);
+    background-color:  rgb(84, 94, 104);
     width: 425px;
     height: 500px;
-    margin-top: 20px;
+    margin-top: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .button-submit {
-    background-color: whitesmoke;
+    background-color: antiquewhite;
     font: 1em sans-serif;
+    border: none;
 }
 
 .email {
@@ -26,14 +30,14 @@
 }
 
 .login-form-text {
-    background-color: whitesmoke;
+    color: antiquewhite;
     text-align: center;
 }
 
 .email-label {
-    color: whitesmoke;
+    color: antiquewhite;
 }
 
 .password-label {
-    color: whitesmoke ;
+    color: antiquewhite;
 }

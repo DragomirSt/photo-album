@@ -10,18 +10,21 @@
 
 .create-comment {
     margin-top: 60px;
-    margin-left: 100px;
     position: relative;
     text-align: center;
     width: 700px;
     height: auto;
     padding: 40px;
     box-sizing: border-box;
-    background: rgba(156, 154, 154, 0.63);
+    background-color: rgb(84, 94, 104);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .create-comment>label {
-    color: whitesmoke;
+    color: antiquewhite;
+    text-align: center;
     font-size: 28px;
     text-align: center;
     font-weight: 700;
@@ -30,9 +33,11 @@
 
 .btn-submit {
     margin-right: 200px;
-    font-size: 20px;
+    width: 125px;
+    height: 30px;
     background-color: whitesmoke;
     cursor:pointer;
     font: 1em sans-serif;
+    border: none;
 
 }
