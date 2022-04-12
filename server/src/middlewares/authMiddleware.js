@@ -8,7 +8,7 @@ exports.verifyToken = (req, res, next) => {
     if (token) {
         jwt.verify(token, secretString.SECRET, function (err, decodedToken) {
             if (err) {
-                res.status(401).json({ message: 'You are not authorized' });
+                res.status(403).json({ message: 'You are not authorized.' });
                 return;
             }
             req.user = decodedToken;
@@ -23,6 +23,6 @@ exports.isAuth = function (req, res, next) {
     if (req.user) {
         next();
     } else {
-        res.status(401).json({ message: 'You are not authorized' });
+        res.status(403).json({ message: 'You are not authorized' });
     }
 };

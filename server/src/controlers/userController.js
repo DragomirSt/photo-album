@@ -11,7 +11,7 @@ router.post('/register', async (req, res) => {
 
     try {
         const user = await authService.register(email, hashedPassword);
-        res.json({ message: 'Registration has been successfull!', userId: user._id });
+        res.status(200).json({ user, message: 'Registration has been successful.', email: user.email });
 
     } catch (error) {
         res.status(400).json({ message: error.message })
@@ -32,18 +32,19 @@ router.post('/login', (req, res) => {
                 res.json({
                     _id: user._id,
                     email: user.email,
-                    accessToken
+                    accessToken,
+                    message: `Welcome ${user.email}`
                 });
             })
             .catch(() => {
-                res.status(400).json({ message: 'Wrong username or password' });
+                res.status(400).json({ message: 'Wrong username or password.' });
             });
     }
 
 });
 
 router.get('/logout', (req, res) => {
-    res.json({ ok: true });
+    res.json({ ok: true, });
 });
 
 

@@ -4,15 +4,19 @@ const moongose = require('mongoose');
 const PhotoCardSchema = new moongose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        minlength: 4
+    
     },
     imageUrl: {
         type: String,
-        required: true   
+        required: true,
+        minlength: 4   
     },
     genre: {
         type: String,
-        required: true
+        required: true,
+        minlength: 3
     },
     _ownerId: {
         type: moongose.Types.ObjectId,
@@ -24,7 +28,6 @@ const PhotoCardSchema = new moongose.Schema({
     comments: [
         
     ]
-
 });
 
 const PhotoCard = moongose.model('PhotoCard', PhotoCardSchema);

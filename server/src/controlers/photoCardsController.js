@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         res.json(photoCards);
 
     } catch (error) {
-        res.status(400).json({ message: 'Cannot connect to server' });
+        res.status(400).json({ message: 'Cannot connect to server.' });
     }
 
 });
@@ -26,10 +26,10 @@ router.post('/', isAuth, async (req, res) => {
     let imageUrl = req.body.imageUrl;
     try {
         await photoService.create({ name, genre, imageUrl, _ownerId: req.user._id });
-        res.status(200).json({ message: 'Succesfully created' });
+        res.status(200).json({ message: 'Successfully created.' });
 
     } catch (err) {
-        res.status(401).json({ message: 'Yor are not authorized' });
+        res.status(400).json({ message: 'Error' });
     }
 
 });
@@ -38,7 +38,7 @@ router.delete('/:id', async (req, res) => {
     try {
         photoService.deletePhoto(req.params.id)
             .then(() => {
-                res.status(200).json({ message: 'Succesfully removed photo' });
+                res.status(200).json({ message: 'Successfully removed photo.' });
             })
 
     } catch (error) {
@@ -60,8 +60,8 @@ router.get('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        await photoService.update(req.params.id, req.body);
-        res.json({ message: 'Sucessfully updated' });
+        let edit = await photoService.update(req.params.id, req.body);
+        res.json({ edit, message: 'Successfully updated.' });
 
     } catch (error) {
         res.status(400).json({ message: 'Error' });
@@ -74,11 +74,11 @@ router.patch('/likes', async (req, res) => {
         $inc: { likes: +1 }
     }, {
         new: true
-    }).exec((err, result) => {
+    }).exec((err, like) => {
         if (err) {
             return res.status(400).json({ message: 'Error' });
         } else {
-            return res.json(result);
+            return res.status(200).json({like, message: 'Like +1 :)'});
         }
     });
 
@@ -95,7 +95,7 @@ router.post('/comment', async (req, res) => {
         if (err) {
             return res.status(400).json({ message: 'Error' });
         } else {
-            return res.status(200).json({ result, message: 'Successfully added new comment' });
+            return res.status(200).json({ result, message: 'Successfully added new comment.' });
         }
     });
 
