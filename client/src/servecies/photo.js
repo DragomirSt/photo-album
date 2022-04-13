@@ -45,5 +45,3 @@ export const updatePhoto = (data, id) => {
             return result;
         });
 };
-
-

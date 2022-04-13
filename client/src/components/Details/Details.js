@@ -51,9 +51,8 @@ const Details = () => {
         </>
     );
     const guestButton = (
-        <div>
-            <button className='like-button' onClick={() => likePhoto(id)}>Like Photo</button>
-            <Link to={`/comment/${id}`}>Add Comment</Link>
+        <div className='guest-buttons'>
+            <button className='like-button' onClick={() => likePhoto(id)}>Like Photo</button>  /  <Link to={`/comment/${id}`}>Add Comment</Link>
         </div>
     );
 

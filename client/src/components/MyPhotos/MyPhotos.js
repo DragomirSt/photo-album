@@ -8,7 +8,7 @@ import * as photo from '../../servecies/photo';
 import MyPhotoCard from "./MyPhotoCard";
 
 import toast from 'react-hot-toast';
-import { loadingNotification } from '../../notifications/notification';
+import { loadingNotification, errorNotification } from '../../notifications/notification';
 
 const MyPhotos = () => {
     const { user } = useContext(AuthContext);
@@ -23,7 +23,7 @@ const MyPhotos = () => {
                 setMyPhotos(photos);
             })
             .catch(err => {
-                alert(err);
+                errorNotification([err]);
             })
             .finally(() => {
                 toast.dismiss(loadingNotification());
@@ -31,19 +31,9 @@ const MyPhotos = () => {
 
     }, [user._id]);
 
-    const noPhotos = (
-        <div className='no-photo-section'>
-            <section className='no-photo-text'>
-                <h3>You have no photos uploaded</h3>
-            </section>
-        </div>
-
-    );
     return (
         <div className='my-photos'>
-            {myPhoto.length > 0
-                ? myPhoto.map(x => <MyPhotoCard key={x._id} photo={x} />)
-                : noPhotos}
+            {myPhoto.map(x => <MyPhotoCard key={x._id} photo={x} />)}
         </div>
     );
 };
