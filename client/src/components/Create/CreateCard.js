@@ -36,7 +36,7 @@ const Create = () => {
             .then(res => {
                 successNotification([res.message]);
                 setTimeout(() => {
-                    navigate('/');
+                    navigate('/all-photos');
                 }, 1700)
 
             })
