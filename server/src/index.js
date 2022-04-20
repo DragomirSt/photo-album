@@ -20,5 +20,5 @@ dataBase()
         app.listen(PORT, () => console.log('app is running on http://localhost:5000'));
     })
     .catch(err => {
-        console.log('Cannot connet to the server.');
+        console.log('Cannot connect to the server.');
     });
