@@ -1,13 +1,11 @@
 
 import './Navigation.css';
 
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
-import { AuthContext } from '../../contexts/AuthContext';
+import useAuthContext from '../../hooks/useAuth';
 
 const Navagation = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuthContext();
 
     const guestNavigation = (
         <>

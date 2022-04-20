@@ -1,15 +1,14 @@
 
 import './Login.css'
 
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useAuthContext from '../../hooks/useAuth';
 
-import { AuthContext } from '../../contexts/AuthContext';
 import * as authService from '../../servecies/auth';
 import { errorNotification, successNotification } from '../../notifications/notification';
 
 const Login = () => {
-    const { setUserSessionData } = useContext(AuthContext);
+    const { setUserSessionData } = useAuthContext();
     const navigate = useNavigate();
 
     const loginHandler = (e) => {

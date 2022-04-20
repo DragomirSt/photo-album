@@ -1,10 +1,10 @@
 
 import './Details.css';
 
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import { AuthContext } from "../../contexts/AuthContext";
+import useAuthContext from '../../hooks/useAuth';
 import * as photo from '../../servecies/photo';
 import { successNotification } from '../../notifications/notification';
 
@@ -12,7 +12,7 @@ const Details = () => {
     const { id } = useParams();
     const [photoCard, setPhotoCard] = useState({});
     const [comments, setComments] = useState([]);
-    const { user } = useContext(AuthContext);
+    const { user } = useAuthContext();
 
     useEffect(() => {
         photo.getCertainPhoto(id)

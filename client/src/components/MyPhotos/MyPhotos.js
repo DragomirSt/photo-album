@@ -1,8 +1,8 @@
 
 import './MyPhotos.css';
 
-import { useEffect, useContext, useState } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
+import { useEffect, useState } from "react";
+import useAuthContext from '../../hooks/useAuth';
 
 import * as photo from '../../servecies/photo';
 import MyPhotoCard from "./MyPhotoCard";
@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 import { loadingNotification, errorNotification } from '../../notifications/notification';
 
 const MyPhotos = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuthContext();
     const [myPhoto, setMyPhotos] = useState([]);
 
     useEffect(() => {

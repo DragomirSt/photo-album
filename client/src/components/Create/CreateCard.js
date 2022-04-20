@@ -1,15 +1,14 @@
 
 import './CreateCard.css'
 
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthContext';
+import useAuthContext from '../../hooks/useAuth';
 
 import * as photo from '../../servecies/photo';
 import { errorNotification, successNotification } from '../../notifications/notification';
 
 const Create = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuthContext();
     const navigate = useNavigate();
 
     const createPhotoCard = (e) => {
