@@ -15,6 +15,7 @@ import Edit from './components/Edit/Edit';
 import MyPhotos from './components/MyPhotos/MyPhotos';
 import Comment from './components/Comment/Comment';
 import StartPage from './components/StartPage/StartPage';
+import RequireAuth from './components/Authorization/Auth';
 
 function App() {
   return (
@@ -31,13 +32,15 @@ function App() {
             <Route path="/all-photos" element={<AllPhotos />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/details/:id" element={<Details />} /><Route />
-            <Route path="/edit/:id" element={<Edit />} />
-            <Route path="/delete/:id" element={<DeleteComponent />} />
-            <Route path="/my-photos" element={<MyPhotos />} />
-            <Route path="/comment/:id" element={<Comment />} />
+            <Route element={<RequireAuth />}>
+              <Route path="/create" element={<Create />} />
+              <Route path="/logout" element={<Logout />} />
+              <Route path="/details/:id" element={<Details />} /><Route />
+              <Route path="/edit/:id" element={<Edit />} />
+              <Route path="/delete/:id" element={<DeleteComponent />} />
+              <Route path="/my-photos" element={<MyPhotos />} />
+              <Route path="/comment/:id" element={<Comment />} />
+            </Route>
           </Routes>
         </main>
       </div>
