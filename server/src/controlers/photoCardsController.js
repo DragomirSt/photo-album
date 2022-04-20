@@ -69,7 +69,7 @@ router.put('/:id', async (req, res) => {
 
 });
 
-router.patch('/likes', async (req, res) => {
+router.patch('/likes', isAuth, async (req, res) => {
     return PhotoCard.findByIdAndUpdate(req.body.postId, {
         $inc: { likes: +1 }
     }, {
@@ -78,13 +78,13 @@ router.patch('/likes', async (req, res) => {
         if (err) {
             return res.status(400).json({ message: 'Error' });
         } else {
-            return res.status(200).json({like, message: 'Like +1 :)'});
+            return res.status(200).json({ like, message: 'Like +1 :)' });
         }
     });
 
 });
 
-router.post('/comment', async (req, res) => {
+router.post('/comment', isAuth, async (req, res) => {
     const comment = await Comment.create(req.body);
 
     return PhotoCard.findByIdAndUpdate(req.body.commentId, {
