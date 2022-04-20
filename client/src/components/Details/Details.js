@@ -29,7 +29,8 @@ const Details = () => {
         fetch('/data/photos/likes', {
             method: 'PATCH',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'X-Authorization': user.accessToken
             },
             body: JSON.stringify({ postId: id })
         })

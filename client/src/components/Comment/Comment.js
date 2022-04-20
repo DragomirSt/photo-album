@@ -2,10 +2,12 @@
 import './Comment.css';
 
 import { useParams, useNavigate } from "react-router-dom";
+import useAuthContext from '../../hooks/useAuth';
 import { successNotification, errorNotification } from '../../notifications/notification';
 
 const Comment = () => {
     const { id } = useParams();
+    const { user } = useAuthContext();
     const navigate = useNavigate();
 
     const addCommentHandler = (e) => {
@@ -20,7 +22,8 @@ const Comment = () => {
         return fetch('/data/photos/comment', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'X-Authorization': user.accessToken
             },
             body: JSON.stringify({ commentId: id, comment, commentedBy: id })
         })
