@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 
 const dataBase = require('./config/dataBase');
+require('dotenv').config();
 const PORT = process.env.PORT || 5000;
 
 const { verifyToken } = require('./middlewares/authMiddleware');
