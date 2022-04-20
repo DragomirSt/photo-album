@@ -1,9 +1,7 @@
 
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
-
 import { Toaster } from 'react-hot-toast';
-import { AuthContext } from './contexts/AuthContext';
+import { AuthContextProvider } from './contexts/AuthContext';
 
 import Navigation from './components/Navigation/Navigation';
 import Login from './components/Login/Login';
@@ -16,51 +14,35 @@ import Details from './components/Details/Details';
 import Edit from './components/Edit/Edit';
 import MyPhotos from './components/MyPhotos/MyPhotos';
 import Comment from './components/Comment/Comment';
-
-const initialUserState = {
-  _id: null,
-  email: null,
-  accessToken: null
-};
+import StartPage from './components/StartPage/StartPage';
 
 function App() {
-  const [user, setUser] = useState(initialUserState);
-
-  const setUserSessionData = (authData) => {
-    setUser(authData);
-  };
-
-  const logoutUser = () => {
-    setUser(initialUserState);
-  };
-
-
   return (
-    <AuthContext.Provider value={{ user, setUserSessionData, logoutUser }}>
-        <div className='app'>
-          <Toaster containerStyle={{
-            right: 700,
-            top: 35
-          }} />
-          <Navigation />
-          <main className='site-content'>
-            <Routes>
-              <Route path="/" element={<AllPhotos />} />
-              <Route path="/all-photos" element={<AllPhotos />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/create" element={<Create />} />
-              <Route path="/logout" element={<Logout />} />
-              <Route path="/details/:id" element={<Details />} /><Route />
-              <Route path="/edit/:id" element={<Edit />} />
-              <Route path="/delete/:id" element={<DeleteComponent />} />
-              <Route path="/my-photos" element={<MyPhotos />} />
-              <Route path="/comment/:id" element={<Comment />} />
-            </Routes>
-          </main>
-        </div>
-    </AuthContext.Provider>
+    <AuthContextProvider>
+      <div className='app'>
+        <Toaster containerStyle={{
+          right: 700,
+          top: 35
+        }} />
+        <Navigation />
+        <main className='site-content'>
+          <Routes>
+            <Route path="/" element={<StartPage />} />
+            <Route path="/all-photos" element={<AllPhotos />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/details/:id" element={<Details />} /><Route />
+            <Route path="/edit/:id" element={<Edit />} />
+            <Route path="/delete/:id" element={<DeleteComponent />} />
+            <Route path="/my-photos" element={<MyPhotos />} />
+            <Route path="/comment/:id" element={<Comment />} />
+          </Routes>
+        </main>
+      </div>
+    </AuthContextProvider>
   );
-}
+};
 
 export default App;
