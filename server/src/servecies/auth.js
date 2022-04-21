@@ -5,13 +5,13 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const constantStrings = require('../utils/constants');
 
-exports.register = async (email, password) => {
+exports.register = async (name, email, password) => {
 
     const isExisting = await User.findOne({ email });
     if (isExisting) {
         throw new Error('User with this email already exists!');
     }
-    return User.create({ email, password });
+    return User.create({ name, email, password });
 };
 
 exports.login = (email, password) => {
@@ -35,7 +35,7 @@ exports.login = (email, password) => {
 const createToken = (user) => {
     let payload = {
         _id: user._id,
-        email: user.email,
+        name: user.name,
     }
     try {
         let token = jwt.sign(payload, constantStrings.SECRET,
