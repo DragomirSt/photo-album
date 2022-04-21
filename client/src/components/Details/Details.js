@@ -59,20 +59,26 @@ const Details = () => {
 
     return (
         <div className="photo-details">
-            <div className='photo-section'>
-                {photoCard.name}, Genre: {photoCard.genre}
-                <br></br>
-                <br></br>
-                <img src={photoCard.imageUrl} width={750} height={500} alt='' />
+            <div className='photo-name'>
+                {photoCard.name}
             </div>
-            <div className='photo-likes'>
-                Likes: {photoCard.likes}
+            <div className='photo-genre'>
+                genre: {photoCard.genre}
+            </div>
+            <div className='photo-author'>
+                author: {photoCard.postAuthor}
+            </div>
+            <div className='photo-image'>
+                {<img src={photoCard.imageUrl} width={750} height={500} alt='' />}
             </div>
             <div className='button-section'>
                 {user._id && (user._id === photoCard._ownerId
                     ? onwerButtons
                     : guestButton)}
 
+            </div>
+            <div className='photo-likes'>
+                Likes: {photoCard.likes}
             </div>
             <div className='comment-section'>
                 <h3 className='comments-title'>Comments:</h3>
