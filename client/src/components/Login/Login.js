@@ -2,6 +2,7 @@
 import './Login.css'
 
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuth';
 
 import * as authService from '../../servecies/auth';
@@ -55,6 +56,9 @@ const Login = () => {
                 </div>
                 <div>
                     <input className="button-submit" type="submit" value="Login" />
+                </div>
+                <div className='link'>
+                 Don't have an accout ? <Link to='/register'>Register</Link>
                 </div>
 
             </form>
