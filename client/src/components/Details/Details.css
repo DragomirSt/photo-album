@@ -1,11 +1,13 @@
 .photo-details {
     display: grid;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 200px 20px 270px 200px;
     grid-template-rows: auto;
+    gap: 10px;
     grid-template-areas: 
-    "card card card"
-    "buttons . likes"
-    "comments comments comments";
+    "name genre genre author"
+    "image image image image"
+    "buttons buttons . likes"
+    "comments comments comments comments";
     margin-top: 10px;
     width: 750px;
     padding: 1.5rem;
@@ -15,15 +17,28 @@
     transform: translate(-50%);
 }
 
-.comments-div {
-    overflow: auto;
-    height: 150px;
-    background-color: antiquewhite;
+.photo-name {
+    grid-area: name;
+    font-size: 20px;
+    color: antiquewhite;
 }
 
-.comment-section {
-    grid-area: comments;
-    font-size: 18px;
+.photo-genre {
+    grid-area: genre;
+    justify-self: center;
+    font-size: 20px;
+    color: antiquewhite;
+}
+
+.photo-author {
+    grid-area: author;
+    justify-self: start;
+    font-size: 20px;
+    color: antiquewhite;
+}
+
+.photo-image {
+    grid-area: image;
 }
 
 .button-section {
@@ -31,22 +46,33 @@
     justify-self: center;
 }
 
-.photo-section {
-    grid-area: card;
-    font-size: 23px;
-    text-align: center;
-    color: antiquewhite;
-}
-
 .photo-likes {
     grid-area: likes;
-    justify-self: end;
-    font-size: 18px;
+    font-size: 20px;
     color: antiquewhite;;
 }
 
+.comment-section {
+    grid-area: comments;
+    font-size: 17px;
+}
+
+.comments-div {
+    overflow: auto;
+    height: 150px;
+    width: 600px;
+    background-color: antiquewhite;
+}
+
 .owner-buttons {
-    width: 115px;
+    
+    text-align: center;
+    font: 1em sans-serif;
+    font-size: medium;
+    font-size: 18px;
+}
+
+.guest-buttons {
     text-align: center;
     font: 1em sans-serif;
     font-size: medium;

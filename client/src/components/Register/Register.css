@@ -1,4 +1,3 @@
-
 .register-form {
     display: flex;
     flex-wrap: wrap;
@@ -6,7 +5,7 @@
     justify-content: space-evenly;
     background-color: rgb(84, 94, 104);
     width: 425px;
-    height: 500px;
+    height: 600px;
     margin-top: 10px;
     position: absolute;
     left: 50%;
@@ -14,24 +13,34 @@
 }
 
 .button-submit {
-    background-color: whitesmoke; 
+    background-color: whitesmoke;
     font: 1em sans-serif;
     border: none;
+    margin-bottom: 95px;    
+}
+
+.name-input { 
+    width: 220px;
+    height: 25px; 
 }
 
 .email-input {
-    width:220px;
+    width: 220px;
     height: 25px;
 }
 
 .password-input {
-    width:220px;
+    width: 220px;
     height: 25px;
 }
 
 .register-form-text {
-     color: antiquewhite;
-     text-align: center;
+    color: antiquewhite;
+    text-align: center;
+}
+
+.name-label {
+    color: whitesmoke;
 }
 
 .email-label {

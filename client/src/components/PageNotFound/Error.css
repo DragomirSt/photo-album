@@ -1,0 +1,16 @@
+.error-div {
+    width: 500px;
+    height: auto;
+    background-color: rgb(84, 94, 104);
+    margin-top: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.error-div>h1 {
+    color: antiquewhite;
+    font-size: 35px;
+    text-align: center;
+}
+
