@@ -6,15 +6,15 @@ const bcrypt = require('bcrypt');
 const authService = require('../servecies/auth');
 
 router.post('/register', async (req, res) => {
-    let { email, password } = req.body;
+    let { name, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
     try {
-        const user = await authService.register(email, hashedPassword);
+        const user = await authService.register(name, email, hashedPassword);
         res.status(200).json({ user, message: 'Registration has been successful.', email: user.email });
 
     } catch (error) {
-        res.status(400).json({ message: error.message })
+        res.status(400).json({ message: error.message });
     };
 
 });
@@ -31,6 +31,7 @@ router.post('/login', (req, res) => {
 
                 res.json({
                     _id: user._id,
+                    name: user.name,
                     email: user.email,
                     accessToken,
                     message: `Welcome ${user.email}`
