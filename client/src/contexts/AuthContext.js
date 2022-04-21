@@ -5,7 +5,7 @@ import { useState } from 'react';
 export const AuthContext = createContext();
 const initialUserState = {
     _id: null,
-    email: null,
+    name: null,
     accessToken: null
 };
 
