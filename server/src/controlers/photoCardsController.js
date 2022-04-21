@@ -25,7 +25,7 @@ router.post('/', isAuth, async (req, res) => {
     let genre = req.body.genre;
     let imageUrl = req.body.imageUrl;
     try {
-        await photoService.create({ name, genre, imageUrl, _ownerId: req.user._id });
+        await photoService.create({ name, genre, imageUrl, _ownerId: req.user._id, postAuthor: req.user.name });
         res.status(200).json({ message: 'Successfully created.' });
 
     } catch (err) {
