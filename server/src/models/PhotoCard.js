@@ -6,12 +6,12 @@ const PhotoCardSchema = new moongose.Schema({
         type: String,
         required: true,
         minlength: 4
-    
+
     },
     imageUrl: {
         type: String,
         required: true,
-        minlength: 4   
+        minlength: 4
     },
     genre: {
         type: String,
@@ -22,11 +22,15 @@ const PhotoCardSchema = new moongose.Schema({
         type: moongose.Types.ObjectId,
         ref: 'User'
     },
+    postAuthor: {
+        type: String,
+        required: true
+    },
     likes: {
         type: Number,
     },
     comments: [
-        
+
     ]
 });
 
